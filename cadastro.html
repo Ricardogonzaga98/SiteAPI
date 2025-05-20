@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Cadastro - Time FC</title>
+  <link rel="stylesheet" href="style.css">
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      background-color: #ffe5e5; /* fundo vermelho claro */
+      color: #4d0000;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    header {
+      background-color: #b30000;
+      padding: 10px 20px;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin-right: 20px;
+      font-weight: bold;
+      font-size: 18px;
+      transition: color 0.3s ease;
+    }
+
+    nav a:hover {
+      color: #ff9999;
+    }
+
+    main {
+      padding: 20px;
+      max-width: 600px;
+      margin: 20px auto 0;
+      text-align: center;
+      background-color: #fff0f0;
+      border-radius: 10px;
+      box-shadow: 0 0 15px rgba(179, 0, 0, 0.3);
+      flex: 1;
+    }
+
+    .imagem-time {
+      max-width: 100%;
+      border-radius: 12px;
+      box-shadow: 0 0 20px rgba(0,0,0,0.3);
+      margin: 20px 0;
+    }
+
+    h1 {
+      color: #800000;
+      margin-bottom: 20px;
+    }
+
+    p {
+      color: #4d0000;
+    }
+
+    form {
+      text-align: left;
+    }
+
+    form label {
+      display: block;
+      font-weight: bold;
+      margin-bottom: 8px;
+      color: #660000;
+    }
+
+    form input[type="text"],
+    form input[type="tel"] {
+      width: 100%;
+      padding: 8px 10px;
+      margin-bottom: 15px;
+      border: 2px solid #ff9999;
+      border-radius: 6px;
+      font-size: 16px;
+      box-sizing: border-box;
+      transition: border-color 0.3s ease;
+    }
+
+    form input[type="text"]:focus,
+    form input[type="tel"]:focus {
+      border-color: #b30000;
+      outline: none;
+    }
+
+    button[type="submit"] {
+      background-color: #b30000;
+      color: white;
+      border: none;
+      padding: 12px 20px;
+      font-size: 18px;
+      font-weight: bold;
+      border-radius: 8px;
+      cursor: pointer;
+      width: 100%;
+      transition: background-color 0.3s ease;
+    }
+
+    button[type="submit"]:hover {
+      background-color: #800000;
+    }
+
+    #mensagem {
+      margin-top: 15px;
+      font-weight: bold;
+      color: #b30000;
+      text-align: center;
+    }
+
+    footer {
+      background-color: #b30000;
+      color: white;
+      text-align: center;
+      padding: 15px 10px;
+      font-size: 16px;
+      font-weight: bold;
+      box-shadow: 0 -2px 5px rgba(0,0,0,0.3);
+      margin-top: 30px;
+    }
+  </style>
+  <script defer src="script.js"></script>
+</head>
+<body>
+  <header>
+    <nav>
+      <a href="index.html">H</a>
+      <a href="sobre.html">S</a>
+      <a href="cadastro.html">C</a>
+    </nav>
+  </header>
+  <main>
+    <h1>Cadastro de Jogador</h1>
+    <form id="formCadastro">
+      <label>Nome: <input type="text" name="nome" required></label>
+      <label>Telefone: <input type="tel" name="fone" required></label>
+      <label>CPF: <input type="text" name="cpf" required></label>
+      <label>Endereço: <input type="text" name="endereco" required></label>
+      <label>Rua / Nº / Bairro: <input type="text" name="ruaBairro" required></label>
+      <label>Cidade / Estado: <input type="text" name="cidadeEstado" required></label>
+      <button type="submit">ENVIAR</button>
+    </form>
+    <p id="mensagem"></p>
+  </main>
+
+  <footer>
+    <p>© 2025 Heimtal FC - Todos os direitos reservados</p>
+  </footer>
+</body>
+
+</html>
