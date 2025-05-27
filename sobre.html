@@ -1,93 +1,162 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
   <title>Sobre - Heimtal FC</title>
-  <link rel="stylesheet" href="style.css">
   <style>
-    body {
-      font-family: Arial, sans-serif;
+    /* Reset básico */
+    * {
       margin: 0;
-      background-color: #ffe5e5; /* fundo vermelho claro */
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #ffe5e5;
       color: #4d0000;
       display: flex;
       flex-direction: column;
       min-height: 100vh;
+      line-height: 1.6;
     }
 
     header {
       background-color: #b30000;
-      padding: 10px 20px;
+      padding: 15px 30px;
+      box-shadow: 0 4px 8px rgba(179, 0, 0, 0.5);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    nav {
+      display: flex;
+      justify-content: center;
+      gap: 30px;
     }
 
     nav a {
       color: white;
       text-decoration: none;
-      margin-right: 20px;
-      font-weight: bold;
+      font-weight: 700;
       font-size: 18px;
-      transition: color 0.3s ease;
+      padding: 8px 12px;
+      border-radius: 6px;
+      transition: background-color 0.3s ease, color 0.3s ease;
     }
 
-    nav a:hover {
-      color: #ff9999;
+    nav a:hover,
+    nav a:focus {
+      background-color: #ff9999;
+      color: #800000;
+      outline: none;
     }
 
     main {
-      padding: 20px;
-      max-width: 700px;
-      margin: 20px auto 0;
       background-color: #fff0f0;
-      border-radius: 10px;
-      box-shadow: 0 0 15px rgba(179, 0, 0, 0.3);
+      max-width: 700px;
+      margin: 30px auto 40px;
+      padding: 30px 30px 40px;
+      border-radius: 15px;
+      box-shadow: 0 0 25px rgba(179, 0, 0, 0.3);
       flex: 1;
-    }
-
-    h1 {
-      color: #800000;
       text-align: center;
-      margin-bottom: 25px;
     }
 
-    p {
-      font-size: 18px;
-      line-height: 1.5;
-      margin-bottom: 20px;
+    main h1 {
+      color: #800000;
+      margin-bottom: 25px;
+      font-size: 2.8rem;
+      font-weight: 700;
+      text-shadow: 1px 1px 3px rgba(179,0,0,0.6);
+    }
+
+    main p {
+      font-size: 1.2rem;
       max-width: 650px;
-      margin-left: auto;
-      margin-right: auto;
+      margin: 0 auto 30px;
+      color: #660000;
+      font-weight: 500;
+      line-height: 1.7;
     }
 
     ul {
       list-style: none;
       padding-left: 0;
-      font-size: 18px;
-      color: #4d0000;
       max-width: 600px;
-      margin: 0 auto 30px auto;
+      margin: 0 auto;
+      color: #4d0000;
+      font-size: 1.15rem;
+      font-weight: 600;
+      text-align: left;
     }
 
     ul li {
-      margin-bottom: 10px;
-      padding-left: 25px;
+      margin-bottom: 14px;
+      padding-left: 30px;
       position: relative;
+      line-height: 1.4;
+      transition: color 0.3s ease;
+      cursor: default;
     }
 
     ul li::before {
-      content: "🏆 ";
+      content: "🏆";
       position: absolute;
       left: 0;
+      top: 0;
+      font-size: 1.3rem;
+      line-height: 1;
+      color: #b30000;
+      text-shadow: 1px 1px 1px rgba(0,0,0,0.1);
+    }
+
+    ul li:hover {
+      color: #800000;
     }
 
     footer {
       background-color: #b30000;
       color: white;
       text-align: center;
-      padding: 15px 10px;
+      padding: 20px 10px;
       font-size: 16px;
-      font-weight: bold;
-      box-shadow: 0 -2px 5px rgba(0,0,0,0.3);
-      margin-top: 30px;
+      font-weight: 700;
+      box-shadow: 0 -3px 8px rgba(0,0,0,0.3);
+      user-select: none;
+      margin-top: auto;
+    }
+
+    /* Responsividade */
+    @media (max-width: 600px) {
+      main {
+        padding: 25px 20px 30px;
+        max-width: 90%;
+      }
+
+      main h1 {
+        font-size: 2rem;
+        margin-bottom: 20px;
+      }
+
+      main p {
+        font-size: 1rem;
+        margin-bottom: 25px;
+      }
+
+      ul {
+        font-size: 1rem;
+      }
+
+      ul li {
+        padding-left: 24px;
+      }
+
+      ul li::before {
+        font-size: 1.1rem;
+        left: 0;
+      }
     }
   </style>
 </head>

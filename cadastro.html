@@ -1,64 +1,75 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
   <title>Cadastro - Time FC</title>
-  <link rel="stylesheet" href="style.css">
-
   <style>
-    body {
-      font-family: Arial, sans-serif;
+    /* Reset simples */
+    * {
       margin: 0;
-      background-color: #ffe5e5; /* fundo vermelho claro */
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #ffe5e5;
       color: #4d0000;
       display: flex;
       flex-direction: column;
       min-height: 100vh;
+      line-height: 1.5;
     }
 
     header {
       background-color: #b30000;
-      padding: 10px 20px;
+      padding: 15px 30px;
+      box-shadow: 0 4px 8px rgba(179, 0, 0, 0.5);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    nav {
+      display: flex;
+      justify-content: center;
+      gap: 30px;
     }
 
     nav a {
       color: white;
       text-decoration: none;
-      margin-right: 20px;
-      font-weight: bold;
+      font-weight: 700;
       font-size: 18px;
-      transition: color 0.3s ease;
+      padding: 8px 12px;
+      border-radius: 6px;
+      transition: background-color 0.3s ease, color 0.3s ease;
     }
 
-    nav a:hover {
-      color: #ff9999;
+    nav a:hover,
+    nav a:focus {
+      background-color: #ff9999;
+      color: #800000;
+      outline: none;
     }
 
     main {
-      padding: 20px;
-      max-width: 600px;
-      margin: 20px auto 0;
-      text-align: center;
       background-color: #fff0f0;
-      border-radius: 10px;
-      box-shadow: 0 0 15px rgba(179, 0, 0, 0.3);
+      max-width: 600px;
+      margin: 40px auto 50px;
+      padding: 35px 30px 40px;
+      border-radius: 15px;
+      box-shadow: 0 0 25px rgba(179, 0, 0, 0.3);
       flex: 1;
+      text-align: center;
     }
 
-    .imagem-time {
-      max-width: 100%;
-      border-radius: 12px;
-      box-shadow: 0 0 20px rgba(0,0,0,0.3);
-      margin: 20px 0;
-    }
-
-    h1 {
+    main h1 {
       color: #800000;
-      margin-bottom: 20px;
-    }
-
-    p {
-      color: #4d0000;
+      font-size: 2.8rem;
+      margin-bottom: 30px;
+      font-weight: 700;
+      text-shadow: 1px 1px 3px rgba(179,0,0,0.6);
     }
 
     form {
@@ -67,26 +78,35 @@
 
     form label {
       display: block;
-      font-weight: bold;
-      margin-bottom: 8px;
+      font-weight: 700;
+      margin-bottom: 10px;
       color: #660000;
+      font-size: 1.1rem;
+      cursor: pointer;
+      transition: color 0.3s ease;
+    }
+
+    form label:hover {
+      color: #b30000;
     }
 
     form input[type="text"],
     form input[type="tel"] {
       width: 100%;
-      padding: 8px 10px;
-      margin-bottom: 15px;
+      padding: 12px 15px;
+      margin-bottom: 25px;
       border: 2px solid #ff9999;
-      border-radius: 6px;
+      border-radius: 8px;
       font-size: 16px;
-      box-sizing: border-box;
-      transition: border-color 0.3s ease;
+      font-weight: 500;
+      transition: border-color 0.3s ease, box-shadow 0.3s ease;
+      font-family: inherit;
     }
 
     form input[type="text"]:focus,
     form input[type="tel"]:focus {
       border-color: #b30000;
+      box-shadow: 0 0 8px #b30000;
       outline: none;
     }
 
@@ -94,35 +114,67 @@
       background-color: #b30000;
       color: white;
       border: none;
-      padding: 12px 20px;
-      font-size: 18px;
-      font-weight: bold;
-      border-radius: 8px;
+      padding: 15px 0;
+      font-size: 1.3rem;
+      font-weight: 700;
+      border-radius: 10px;
       cursor: pointer;
       width: 100%;
-      transition: background-color 0.3s ease;
+      transition: background-color 0.3s ease, box-shadow 0.3s ease;
+      user-select: none;
     }
 
-    button[type="submit"]:hover {
+    button[type="submit"]:hover,
+    button[type="submit"]:focus {
       background-color: #800000;
+      box-shadow: 0 0 15px #800000aa;
+      outline: none;
     }
 
     #mensagem {
-      margin-top: 15px;
-      font-weight: bold;
+      margin-top: 20px;
+      font-weight: 700;
       color: #b30000;
       text-align: center;
+      min-height: 24px;
+      font-size: 1.1rem;
     }
 
     footer {
       background-color: #b30000;
       color: white;
       text-align: center;
-      padding: 15px 10px;
+      padding: 20px 10px;
       font-size: 16px;
-      font-weight: bold;
-      box-shadow: 0 -2px 5px rgba(0,0,0,0.3);
-      margin-top: 30px;
+      font-weight: 700;
+      box-shadow: 0 -3px 8px rgba(0,0,0,0.3);
+      user-select: none;
+      margin-top: auto;
+    }
+
+    /* Responsividade */
+    @media (max-width: 620px) {
+      main {
+        max-width: 90%;
+        padding: 25px 20px 30px;
+      }
+
+      main h1 {
+        font-size: 2rem;
+        margin-bottom: 25px;
+      }
+
+      form input[type="text"],
+      form input[type="tel"] {
+        padding: 10px 12px;
+        font-size: 1rem;
+        margin-bottom: 20px;
+      }
+
+      button[type="submit"] {
+        font-size: 1.1rem;
+        padding: 12px 0;
+      }
     }
   </style>
   <script defer src="script.js"></script>
@@ -136,17 +188,31 @@
       <a href="jogadores.html">Jogadores</a>
     </nav>
   </header>
+
   <main>
     <h1>Cadastro de Jogador</h1>
     <form id="formCadastro">
-      <label>Nome: <input type="text" name="nome" required></label>
-      <label>Telefone: <input type="tel" name="fone" required></label>
-      <label>CPF: <input type="text" name="cpf" required></label>
-      <label>Endereço: <input type="text" name="endereco" required></label>
-      <label>Rua / Nº / Bairro: <input type="text" name="ruaBairro" required></label>
-      <label>Cidade / Estado: <input type="text" name="cidadeEstado" required></label>
+      <label for="nome">Nome:</label>
+      <input type="text" id="nome" name="nome" required />
+
+      <label for="fone">Telefone:</label>
+      <input type="tel" id="fone" name="fone" required />
+
+      <label for="cpf">CPF:</label>
+      <input type="text" id="cpf" name="cpf" required />
+
+      <label for="endereco">Endereço:</label>
+      <input type="text" id="endereco" name="endereco" required />
+
+      <label for="ruaBairro">Rua / Nº / Bairro:</label>
+      <input type="text" id="ruaBairro" name="ruaBairro" required />
+
+      <label for="cidadeEstado">Cidade / Estado:</label>
+      <input type="text" id="cidadeEstado" name="cidadeEstado" required />
+
       <button type="submit">ENVIAR</button>
     </form>
+
     <p id="mensagem"></p>
   </main>
 
@@ -154,5 +220,4 @@
     <p>© 2025 Heimtal FC - Todos os direitos reservados</p>
   </footer>
 </body>
-
 </html>

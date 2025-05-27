@@ -4,101 +4,174 @@
   <meta charset="UTF-8" />
   <title>Jogadores - Heimtal FC</title>
   <style>
+    /* Reset básico */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
     body {
-      font-family: Arial, sans-serif;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       background-color: #ffe5e5;
       color: #4d0000;
-      margin: 0;
+      line-height: 1.5;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
     }
 
     header {
       background-color: #b30000;
-      padding: 10px 20px;
+      padding: 12px 24px;
+      box-shadow: 0 4px 8px rgba(179, 0, 0, 0.4);
+      position: sticky;
+      top: 0;
+      z-index: 100;
     }
 
     nav {
       display: flex;
-      align-items: center;
-    }
-
-    nav img.logo {
-      height: 40px; /* Estilo para o logo no cabeçalho */
-      margin-right: 20px;
+      justify-content: center;
+      gap: 32px;
     }
 
     nav a {
       color: white;
-      text-decoration: none;
-      margin-right: 20px;
-      font-weight: bold;
+      font-weight: 700;
       font-size: 18px;
-      transition: color 0.3s ease;
+      text-decoration: none;
+      padding: 8px 16px;
+      border-radius: 8px;
+      transition: background-color 0.3s ease, color 0.3s ease;
     }
 
-    nav a:hover {
-      color: #ff9999;
+    nav a:hover,
+    nav a:focus {
+      background-color: #ff9999;
+      color: #800000;
+      outline: none;
     }
 
     main {
-      padding: 20px;
-      max-width: 1000px;
-      margin: 0 auto;
+      flex-grow: 1;
+      max-width: 1100px;
+      margin: 40px auto;
+      padding: 0 20px 40px;
+      width: 100%;
     }
 
     h1 {
       text-align: center;
+      font-size: 3rem;
+      margin-bottom: 40px;
+      letter-spacing: 1.4px;
       color: #800000;
-      margin-bottom: 30px;
+      text-shadow: 1px 1px 3px rgba(179, 0, 0, 0.3);
     }
 
     .jogadores {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 20px;
+      gap: 28px;
     }
 
     .jogador {
-      background-color: #fff0f0;
-      border-radius: 12px;
-      box-shadow: 0 0 10px rgba(179, 0, 0, 0.2);
-      padding: 15px;
+      background: linear-gradient(145deg, #fff0f0, #ffd6d6);
+      border-radius: 18px;
+      box-shadow: 0 10px 20px rgba(179, 0, 0, 0.25);
+      padding: 24px 20px 30px;
       text-align: center;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      cursor: default;
+    }
+    .jogador:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 20px 35px rgba(179, 0, 0, 0.45);
     }
 
     .jogador img {
-      width: 100%; /* A imagem do logo ocupará a largura total do container do jogador */
-      max-width: 150px; /* Limita o tamanho do logo para não ficar muito grande */
-      height: auto;
-      border-radius: 12px; /* Mantém o border-radius, embora o logo seja quadrado */
-      margin-bottom: 10px;
+      width: 140px;
+      height: 140px;
+      object-fit: cover;
+      border-radius: 50%;
+      border: 4px solid #b30000;
+      margin-bottom: 18px;
+      background-color: white;
+      box-shadow: 0 6px 12px rgba(179, 0, 0, 0.2);
+      transition: transform 0.3s ease;
+    }
+    .jogador:hover img {
+      transform: scale(1.05);
     }
 
     .jogador h2 {
+      font-size: 1.8rem;
       color: #800000;
-      margin: 10px 0 5px;
+      margin-bottom: 8px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
     }
 
     .jogador p {
-      margin: 5px 0;
-      font-size: 16px;
+      font-size: 1.15rem;
+      font-weight: 600;
+      color: #600000;
+      margin-top: 0;
     }
 
     footer {
       background-color: #b30000;
       color: white;
+      font-weight: 700;
       text-align: center;
-      padding: 15px 10px;
+      padding: 20px 15px;
       font-size: 16px;
-      font-weight: bold;
-      margin-top: 40px;
+      box-shadow: inset 0 3px 5px rgba(0,0,0,0.2);
+      margin-top: auto;
+    }
+
+    /* Responsividade */
+    @media (max-width: 600px) {
+      nav {
+        gap: 20px;
+        flex-wrap: wrap;
+      }
+      .jogador img {
+        width: 120px;
+        height: 120px;
+      }
+      .jogador h2 {
+        font-size: 1.4rem;
+      }
+      .jogador p {
+        font-size: 1rem;
+      }
+    }
+
+    @media (max-width: 350px) {
+      nav a {
+        font-size: 16px;
+        padding: 6px 10px;
+      }
+      .jogador img {
+        width: 100px;
+        height: 100px;
+      }
+      .jogador h2 {
+        font-size: 1.2rem;
+      }
+      .jogador p {
+        font-size: 0.9rem;
+      }
     }
   </style>
 </head>
 <body>
   <header>
     <nav>
-     
-      <a href="index.html">Inicio</a>
+      <a href="index.html">Início</a>
       <a href="sobre.html">Sobre</a>
       <a href="cadastro.html">Cadastro</a>
       <a href="jogadores.html">Jogadores</a>
@@ -109,102 +182,102 @@
     <h1>Elenco Heimtal FC</h1>
     <div class="jogadores">
       <div class="jogador">
-        <img src="Captura de tela 2025-05-23 184055.png" alt="Logo Heimtal FC" />
+        <img src="Captura de tela 2025-05-23 184055.png" alt="João Marcelo" />
         <h2>João Marcelo</h2>
         <p>Posição: Goleiro</p>
       </div>
       <div class="jogador">
-        <img src="/Captura de tela 2025-05-23 184055.png" alt="Logo Heimtal FC" />
+        <img src="Captura de tela 2025-05-23 184055.png" alt="Marcelinho" />
         <h2>Marcelinho</h2>
         <p>Posição: Goleiro</p>
       </div>
       <div class="jogador">
-        <img src="/Captura de tela 2025-05-23 184055.png" alt="Logo Heimtal FC" />
+        <img src="Captura de tela 2025-05-23 184055.png" alt="Vasco" />
         <h2>Vasco</h2>
         <p>Posição: Goleiro</p>
       </div>
       <div class="jogador">
-        <img src="/Captura de tela 2025-05-23 184055.png" alt="Logo Heimtal FC" />
+        <img src="Captura de tela 2025-05-23 184055.png" alt="Para" />
         <h2>Para</h2>
         <p>Posição: Zagueiro</p>
       </div>
       <div class="jogador">
-        <img src="/Captura de tela 2025-05-23 184055.png" alt="Logo Heimtal FC" />
+        <img src="Captura de tela 2025-05-23 184055.png" alt="Alex" />
         <h2>Alex</h2>
         <p>Posição: Volante</p>
       </div>
       <div class="jogador">
-        <img src="/Captura de tela 2025-05-23 184055.png" alt="Logo Heimtal FC" />
+        <img src="Captura de tela 2025-05-23 184055.png" alt="Zé Bagaça" />
         <h2>Zé Bagaça</h2>
         <p>Posição: Zagueiro</p>
       </div>
       <div class="jogador">
-        <img src="/Captura de tela 2025-05-23 184055.png" alt="Logo Heimtal FC" />
+        <img src="Captura de tela 2025-05-23 184055.png" alt="Alyfer" />
         <h2>Alyfer</h2>
         <p>Posição: Ala</p>
       </div>
       <div class="jogador">
-        <img src="/Captura de tela 2025-05-23 184055.png" alt="Logo Heimtal FC" />
+        <img src="Captura de tela 2025-05-23 184055.png" alt="Pato" />
         <h2>Pato</h2>
         <p>Posição: Ala</p>
       </div>
       <div class="jogador">
-        <img src="/Captura de tela 2025-05-23 184055.png" alt="Logo Heimtal FC" />
+        <img src="ramonzineela.jpg" alt="Ramon" />
         <h2>Ramon</h2>
         <p>Posição: Ala</p>
       </div>
       <div class="jogador">
-        <img src="/Captura de tela 2025-05-23 184055.png" alt="Logo Heimtal FC" />
+        <img src="Captura de tela 2025-05-23 184055.png" alt="Negueba" />
         <h2>Negueba</h2>
         <p>Posição: Ala</p>
       </div>
       <div class="jogador">
-        <img src="/Captura de tela 2025-05-23 184055.png" alt="Logo Heimtal FC" />
+        <img src="ricardinho.jpg" alt="Ricardinho" />
         <h2>Ricardinho</h2>
         <p>Posição: Meia</p>
       </div>
       <div class="jogador">
-        <img src="/Captura de tela 2025-05-23 184055.png" alt="Logo Heimtal FC" />
+        <img src="Captura de tela 2025-05-23 184055.png" alt="Tripa" />
         <h2>Tripa</h2>
         <p>Posição: Meia</p>
       </div>
       <div class="jogador">
-        <img src="/Captura de tela 2025-05-23 184055.png" alt="Logo Heimtal FC" />
+        <img src="Captura de tela 2025-05-23 184055.png" alt="Derso" />
         <h2>Derso</h2>
         <p>Posição: Atacante</p>
       </div>
       <div class="jogador">
-        <img src="/Captura de tela 2025-05-23 184055.png" alt="Logo Heimtal FC" />
+        <img src="Captura de tela 2025-05-23 184055.png" alt="Jhony" />
         <h2>Jhony</h2>
         <p>Posição: Atacante</p>
       </div>
       <div class="jogador">
-        <img src="/Captura de tela 2025-05-23 184055.png" alt="Logo Heimtal FC" />
+        <img src="Captura de tela 2025-05-23 184055.png" alt="Yudi" />
         <h2>Yudi</h2>
         <p>Posição: Meia</p>
       </div>
       <div class="jogador">
-        <img src="/Captura de tela 2025-05-23 184055.png" alt="Logo Heimtal FC" />
+        <img src="Captura de tela 2025-05-23 184055.png" alt="Gil" />
         <h2>Gil</h2>
         <p>Posição: Volante</p>
       </div>
       <div class="jogador">
-        <img src="/Captura de tela 2025-05-23 184055.png" alt="Logo Heimtal FC" />
+        <img src="Captura de tela 2025-05-23 184055.png" alt="Lourival" />
         <h2>Lourival</h2>
         <p>Posição: Atacante</p>
       </div>
       <div class="jogador">
-        <img src="/Captura de tela 2025-05-23 184055.png" alt="Logo Heimtal FC" />
+        <img src="Captura de tela 2025-05-23 184055.png" alt="Napa" />
         <h2>Napa</h2>
         <p>Posição: Ala</p>
       </div>
       <div class="jogador">
-        <img src="/Captura de tela 2025-05-23 184055.png" alt="Logo Heimtal FC" />
+        <img src="Captura de tela 2025-05-23 184055.png" alt="Edinho" />
         <h2>Edinho</h2>
         <p>Posição: Teimoso</p>
       </div>
       <div class="jogador">
-        <img src="/Captura de tela 2025-05-23 184055.png" alt="Logo Heimtal FC" />
+        <img src="Captura de tela 2025-05-23 184055.png" alt="Newtinho (Treinador)" />
         <h2>Newtinho (Treinador)</h2>
         <p>Função: Treinador</p>
       </div>
@@ -215,4 +288,4 @@
     <p>© 2025 Heimtal FC - Todos os direitos reservados</p>
   </footer>
 </body>
-</html> 
+</html>

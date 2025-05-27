@@ -3,111 +3,232 @@
 <head>
   <meta charset="UTF-8" />
   <title>Home - Time FC</title>
-  <link rel="stylesheet" href="style.css" />
   <style>
-    body {
-      font-family: Arial, sans-serif;
+    /* Reset básico */
+    * {
       margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       background-color: #ffe5e5;
       color: #4d0000;
       display: flex;
       flex-direction: column;
       min-height: 100vh;
+      line-height: 1.6;
     }
 
     header {
       background-color: #b30000;
-      padding: 10px 20px;
+      padding: 15px 30px;
+      box-shadow: 0 4px 8px rgba(179, 0, 0, 0.5);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    nav {
+      display: flex;
+      justify-content: center;
+      gap: 30px;
     }
 
     nav a {
       color: white;
       text-decoration: none;
-      margin-right: 20px;
-      font-weight: bold;
+      font-weight: 700;
       font-size: 18px;
-      transition: color 0.3s ease;
+      padding: 8px 12px;
+      border-radius: 6px;
+      transition: background-color 0.3s ease, color 0.3s ease;
     }
 
-    nav a:hover {
-      color: #ff9999;
+    nav a:hover,
+    nav a:focus {
+      background-color: #ff9999;
+      color: #800000;
+      outline: none;
     }
 
     main {
-      padding: 20px;
-      max-width: 900px;
-      margin: 0 auto;
-      text-align: center;
       flex: 1;
+      max-width: 1000px;
+      margin: 30px auto 50px;
+      padding: 0 20px;
+      text-align: center;
     }
 
     h1 {
+      font-size: 3rem;
       color: #800000;
-      margin-bottom: 10px;
+      margin-bottom: 15px;
+      text-shadow: 1px 1px 3px rgba(179,0,0,0.6);
     }
 
     p {
-      margin-bottom: 25px;
-      font-size: 18px;
+      font-size: 1.2rem;
+      margin-bottom: 40px;
+      color: #660000;
+      max-width: 700px;
+      margin-left: auto;
+      margin-right: auto;
+      font-weight: 500;
     }
 
     .galeria {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 20px;
-      margin-bottom: 40px;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 25px;
+      margin-bottom: 50px;
     }
 
     .galeria img {
       width: 100%;
-      height: auto;
-      border-radius: 12px;
-      box-shadow: 0 0 20px rgba(0,0,0,0.3);
-      transition: transform 0.3s ease;
+      height: 150px;
+      object-fit: cover;
+      border-radius: 15px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.25);
+      cursor: pointer;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .galeria img:hover,
+    .galeria img:focus {
+      transform: scale(1.08);
+      box-shadow: 0 8px 20px rgba(179, 0, 0, 0.7);
+      outline: none;
+    }
+
+    .apresentacao_links {
+      margin-bottom: 50px;
+    }
+
+    .apresentacao_links_subtitulo {
+      color: #800000;
+      font-size: 1.8rem;
+      margin-bottom: 15px;
+      font-weight: 700;
+      text-shadow: 1px 1px 2px rgba(179,0,0,0.5);
+    }
+
+    .apresentacao_links_navegacao {
+      display: inline-flex;
+      align-items: center;
+      background-color: #b30000;
+      color: white;
+      text-decoration: none;
+      padding: 10px 18px;
+      border-radius: 10px;
+      font-weight: 600;
+      font-size: 1.1rem;
+      box-shadow: 0 4px 10px rgba(179, 0, 0, 0.5);
+      transition: background-color 0.3s ease;
+      gap: 10px;
       cursor: pointer;
     }
 
-    .galeria img:hover {
-      transform: scale(1.05);
+    .apresentacao_links_navegacao:hover,
+    .apresentacao_links_navegacao:focus {
+      background-color: #800000;
+      outline: none;
+    }
+
+    .apresentacao_links_navegacao img {
+      width: 28px;
+      height: 28px;
+      filter: drop-shadow(0 0 1px rgba(0,0,0,0.6));
+      border-radius: 4px;
     }
 
     .campo {
       background-color: #fff0f0;
-      border-radius: 12px;
-      padding: 20px;
-      box-shadow: 0 0 15px rgba(179, 0, 0, 0.3);
-      margin-bottom: 40px;
+      border-radius: 15px;
+      padding: 25px 30px;
+      box-shadow: 0 0 20px rgba(179, 0, 0, 0.3);
+      margin-bottom: 50px;
+      max-width: 900px;
+      margin-left: auto;
+      margin-right: auto;
+      text-align: left;
     }
 
     .campo h2 {
       color: #800000;
-      margin-bottom: 15px;
+      margin-bottom: 25px;
+      font-size: 2rem;
+      font-weight: 700;
+      text-align: center;
+      text-shadow: 1px 1px 3px rgba(179,0,0,0.6);
     }
 
     .campo img {
+      display: block;
       max-width: 100%;
-      border-radius: 12px;
+      height: auto;
+      border-radius: 15px;
       box-shadow: 0 0 15px rgba(0,0,0,0.2);
-      margin-bottom: 20px;
+      margin: 0 auto 25px;
+    }
+
+    .campo p {
+      font-size: 1.15rem;
+      color: #660000;
+      text-align: center;
+      margin-bottom: 25px;
+      font-weight: 500;
     }
 
     .campo iframe {
       width: 100%;
-      height: 300px;
-      border: 0;
-      border-radius: 12px;
+      height: 350px;
+      border: none;
+      border-radius: 15px;
       box-shadow: 0 0 15px rgba(0,0,0,0.2);
+      display: block;
+      margin: 0 auto;
     }
 
     footer {
       background-color: #b30000;
       color: white;
       text-align: center;
-      padding: 15px 10px;
+      padding: 20px 10px;
       font-size: 16px;
-      font-weight: bold;
-      box-shadow: 0 -2px 5px rgba(0,0,0,0.3);
+      font-weight: 700;
+      box-shadow: 0 -3px 8px rgba(0,0,0,0.3);
       margin-top: auto;
+      user-select: none;
+    }
+
+    /* Responsividade */
+    @media (max-width: 600px) {
+      h1 {
+        font-size: 2.4rem;
+      }
+
+      p, .campo p {
+        font-size: 1rem;
+      }
+
+      .galeria {
+        grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+        gap: 15px;
+      }
+
+      .galeria img {
+        height: 120px;
+      }
+
+      .campo {
+        padding: 20px 15px;
+      }
+
+      .campo iframe {
+        height: 250px;
+      }
     }
   </style>
 </head>
@@ -126,9 +247,17 @@
     <p>Orgulho da nossa comunidade ! Confira nossa equipe e conquistas.</p>
     
     <div class="galeria">
-      <img src="heimtal.jpg" alt="Time Heimtal FC" />
-      <img src="imagem2.jpg" alt="Foto do Time 2" />
-      <img src="imagem3.jpg" alt="Foto do Time 3" />
+      <img src="heimtal.jpg" alt="Time Heimtal FC" tabindex="0"/>
+      <img src="imagem2.jpg" alt="Foto do Time 2" tabindex="0"/>
+      <img src="imagem3.jpg" alt="Foto do Time 3" tabindex="0"/>
+    </div>
+
+    <div class="apresentacao_links">
+      <h2 class="apresentacao_links_subtitulo"></h2>
+      <a class="apresentacao_links_navegacao" href="https://www.instagram.com/ricardogonzaga98/" target="_blank" rel="noopener noreferrer">
+        <img src="./instagram.png" alt="Ícone Instagram" />
+        Instagram
+      </a>
     </div>
 
     <section class="campo">
