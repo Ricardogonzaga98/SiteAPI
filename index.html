@@ -2,7 +2,7 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8" />
-  <title>Home - Time FC</title>
+  <title>Home - Heimtal FC</title>
   <style>
     /* Reset básico */
     * {
@@ -66,6 +66,15 @@
       color: #800000;
       margin-bottom: 15px;
       text-shadow: 1px 1px 3px rgba(179,0,0,0.6);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 15px;
+    }
+
+    h1 img {
+      width: 50px;
+      height: auto;
     }
 
     p {
@@ -128,6 +137,7 @@
       transition: background-color 0.3s ease;
       gap: 10px;
       cursor: pointer;
+      margin: 5px;
     }
 
     .apresentacao_links_navegacao:hover,
@@ -203,10 +213,97 @@
       user-select: none;
     }
 
+    /* Jogos da Semana */
+    .jogos-semana {
+      position: fixed;
+      bottom: 20px;
+      left: 20px;
+      background-color: rgba(255, 240, 240, 0.95);
+      border: 2px solid #b30000;
+      border-radius: 12px;
+      padding: 15px 18px;
+      width: 280px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+      z-index: 999;
+      font-family: inherit;
+      font-size: 14px;
+      color: #660000;
+      user-select: none;
+    }
+
+    .jogos-semana h3 {
+      color: #800000;
+      font-size: 1.3rem;
+      margin-bottom: 12px;
+      text-align: center;
+      font-weight: 700;
+      text-shadow: 1px 1px 2px rgba(179,0,0,0.4);
+    }
+
+    .match-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .match-list li {
+      display: flex;
+      align-items: center;
+      padding: 8px 0;
+      border-bottom: 1px solid #ddd;
+      gap: 8px;
+    }
+
+    .match-list li:last-child {
+      border-bottom: none;
+    }
+
+    .match-list img {
+      width: 30px;
+      height: 30px;
+      flex-shrink: 0;
+      border-radius: 4px;
+    }
+
+    .match-info {
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 3px;
+    }
+
+    .match-info .teams {
+      font-weight: 700;
+      font-size: 15px;
+      color: #660000;
+    }
+
+    .match-info .teams .heimtal {
+      color: #b30000;
+      font-weight: 900;
+    }
+
+    .match-info .championship {
+      font-size: 13px;
+      color: #b30000;
+      font-weight: 600;
+      font-style: italic;
+    }
+
+    .match-time {
+      white-space: nowrap;
+      font-size: 13px;
+      color: #555;
+      flex-shrink: 0;
+      font-weight: 600;
+    }
+
     /* Responsividade */
     @media (max-width: 600px) {
       h1 {
         font-size: 2.4rem;
+        flex-direction: column;
+        gap: 8px;
       }
 
       p, .campo p {
@@ -229,6 +326,12 @@
       .campo iframe {
         height: 250px;
       }
+
+      .jogos-semana {
+        width: 90%;
+        left: 5%;
+        bottom: 15px;
+      }
     }
   </style>
 </head>
@@ -243,9 +346,12 @@
   </header>
 
   <main>
-    <h1>Bem-vindo ao Heimtal FC</h1>
+    <h1>
+      <img src="Captura de tela 2025-05-23 184055.png" alt="Escudo Heimtal FC" />
+      Bem-vindo ao Heimtal FC
+    </h1>
     <p>Orgulho da nossa comunidade ! Confira nossa equipe e conquistas.</p>
-    
+
     <div class="galeria">
       <img src="heimtal.jpg" alt="Time Heimtal FC" tabindex="0"/>
       <img src="imagem2.jpg" alt="Foto do Time 2" tabindex="0"/>
@@ -255,8 +361,12 @@
     <div class="apresentacao_links">
       <h2 class="apresentacao_links_subtitulo">Acesse nossas redes: </h2>
       <a class="apresentacao_links_navegacao" href="https://www.instagram.com/heimtal_oficial/" target="_blank" rel="noopener noreferrer">
-        <img src="./instagram.png" alt="Ícone Instagram" />
+        <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" alt="Ícone Instagram" />
         Instagram
+      </a>
+      <a class="apresentacao_links_navegacao" href="https://wa.me/5543999108179" target="_blank" rel="noopener noreferrer">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/5/5e/WhatsApp_icon.png" alt="Ícone WhatsApp" />
+        WhatsApp
       </a>
     </div>
 
@@ -264,19 +374,40 @@
       <h2>Nosso Campo de Futebol</h2>
       <img src="campo.jpg" alt="Campo de Futebol Heimtal FC" />
       <p>É aqui que fica nosso campo !! Visite nosso campo de futebol:</p>
-      
       <iframe
-        src="https://www.google.com/maps/embed?pb=!4v1716225815520!6m8!1m7!1sCIHM0ogKEICAgICGsLqomgE!2m2!1d-23.2517847!2d-51.1556712!3f75!4f0!5f0.7820865974627469"
+        src="https://www.google.com/maps/embed?pb=!4v1716225815520!6m8!1m7!1sCIHM0ogKEICAgICGsLqomgE!2m2!1d-23.2517847!2d-51.1556712!3f234.45!4f0!5f0.7820865974627469"
         allowfullscreen=""
         loading="lazy"
-        referrerpolicy="no-referrer-when-downgrade">
-      </iframe>
+        referrerpolicy="no-referrer-when-downgrade"
+        title="Localização do Campo Heimtal FC"
+      ></iframe>
     </section>
   </main>
 
   <footer>
-    <p>© 2025 Heimtal FC - Todos os direitos reservados</p>
+    &copy; 2025 Heimtal FC - Todos os direitos reservados.
   </footer>
-  
+
+  <div class="jogos-semana" aria-label="Jogos da semana do Heimtal FC">
+    <h3>Jogos da Semana</h3>
+    <ul class="match-list">
+      <li>
+        <img src="Captura de tela 2025-05-23 184055.png" alt="Escudo Heimtal FC" />
+        <div class="match-info">
+          <span class="teams"><span class="heimtal">Heimtal FC</span> x Pizzano</span>
+          <span class="championship">Campeonato Intermunicipal F7</span>
+        </div>
+        <div class="match-time">📅 Sábado - 15:30</div>
+      </li>
+      <li>
+        <img src="Captura de tela 2025-05-23 184055.png" alt="Escudo Heimtal FC" />
+        <div class="match-info">
+          <span class="teams"><span class="heimtal">Heimtal FC</span> x Ouro Verde</span>
+          <span class="championship">Campeonato de Campo</span>
+        </div>
+        <div class="match-time">📅 Domingo - 10:00</div>
+      </li>
+    </ul>
+  </div>
 </body>
 </html>
