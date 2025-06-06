@@ -298,41 +298,63 @@
       font-weight: 600;
     }
 
-    /* Responsividade */
-    @media (max-width: 600px) {
-      h1 {
-        font-size: 2.4rem;
-        flex-direction: column;
-        gap: 8px;
-      }
+   @media (max-width: 600px) {
+  h1 {
+    font-size: 2.4rem;
+    flex-direction: column;
+    gap: 8px;
+  }
 
-      p, .campo p {
-        font-size: 1rem;
-      }
+  p, .campo p {
+    font-size: 1rem;
+  }
 
-      .galeria {
-        grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-        gap: 15px;
-      }
+  .galeria {
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 15px;
+  }
 
-      .galeria img {
-        height: 120px;
-      }
+  .galeria img {
+    height: 120px;
+  }
 
-      .campo {
-        padding: 20px 15px;
-      }
+  .campo {
+    padding: 20px 15px;
+  }
 
-      .campo iframe {
-        height: 250px;
-      }
+  .campo iframe {
+    height: 250px;
+  }
 
-      .jogos-semana {
-        width: 90%;
-        left: 5%;
-        bottom: 15px;
-      }
-    }
+  .jogos-semana {
+    width: 90%;
+    left: 5%;
+    bottom: 15px;
+  }
+
+  /* 🎯 Responsividade da tabela de jogos */
+  .tabela-jogos h2 {
+    font-size: 1.5rem;
+    text-align: center;
+  }
+
+  .tabela-jogos table {
+    font-size: 14px;
+    min-width: 600px; /* Tamanho mínimo da tabela para rolar lateralmente */
+  }
+
+  .tabela-jogos th,
+  .tabela-jogos td {
+    padding: 10px 8px;
+  }
+
+  /* Opcional: Esconder a coluna de "Competição" (exemplo) */
+  /* .tabela-jogos th:nth-child(5),
+     .tabela-jogos td:nth-child(5) {
+    display: none;
+  } */
+}
+
   </style>
 </head>
 <body>
