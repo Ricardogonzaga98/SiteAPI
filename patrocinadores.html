@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <title>Patrocinadores - Heimtal FC</title>
+  <style>
+    /* Reset e básico */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #fff;
+      color: #333;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* Header com menu */
+    header {
+      background-color: #b30000;
+      padding: 15px 30px;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.15);
+    }
+
+    nav {
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+    }
+
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 18px;
+      padding: 8px 15px;
+      border-radius: 8px;
+      transition: background-color 0.3s ease;
+    }
+
+    nav a:hover,
+    nav a:focus {
+      background-color: #e34b4b;
+      outline: none;
+    }
+
+    nav a.active {
+      background-color: #e34b4b;
+      font-weight: 700;
+      box-shadow: 0 0 10px #e34b4b;
+    }
+
+    main {
+      flex: 1;
+      max-width: 1000px;
+      margin: 40px auto;
+      padding: 0 20px;
+      text-align: center;
+    }
+
+    h1 {
+      color: #b30000;
+      font-size: 3rem;
+      margin-bottom: 20px;
+      text-shadow: 1px 1px 3px rgba(179,0,0,0.3);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 15px;
+    }
+
+    h1 img {
+      width: 50px;
+      height: auto;
+    }
+
+    p {
+      font-size: 1.2rem;
+      color: #555;
+      max-width: 700px;
+      margin: 0 auto 40px;
+      font-weight: 500;
+    }
+
+    /* Grid patrocinadores */
+    .patrocinadores {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 30px;
+      margin-bottom: 40px;
+    }
+
+    .patrocinador-card {
+      background: #f9f9f9;
+      padding: 20px;
+      border-radius: 15px;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.1);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      cursor: pointer;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .patrocinador-card:hover,
+    .patrocinador-card:focus {
+      transform: translateY(-6px);
+      box-shadow: 0 8px 25px rgba(179,0,0,0.25);
+      outline: none;
+    }
+
+    .patrocinador-card img {
+      max-width: 100%;
+      max-height: 250px;
+      object-fit: contain;
+      display: block;
+      margin-bottom: 15px;
+    }
+
+    .patrocinador-nome {
+      font-size: 1.1rem;
+      color: #b30000;
+      font-weight: 700;
+      text-align: center;
+      user-select: none;
+    }
+
+    /* Links Instagram */
+    .instagram-link {
+      color: #b30000;
+      font-weight: 600;
+      margin-top: 5px;
+      text-decoration: none;
+      font-size: 1rem;
+      user-select: text;
+      transition: color 0.3s ease;
+    }
+
+    .instagram-link:hover,
+    .instagram-link:focus {
+      color: #e34b4b;
+      outline: none;
+      text-decoration: underline;
+    }
+
+    /* Nova seção contato WhatsApp destacada */
+    .contato-whatsapp {
+      margin: 30px auto 60px;
+      max-width: 400px;
+      padding: 20px;
+      background-color: #b30000; /* vermelho do site */
+      border-radius: 15px;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.15);
+      text-align: center;
+      font-weight: 700;
+      font-size: 1.2rem;
+      color: #fff; /* texto branco */
+      user-select: none;
+    }
+
+    .contato-whatsapp a {
+      display: inline-block;
+      margin-top: 15px;
+      background-color: #fff; /* fundo branco para contraste */
+      color: #b30000; /* texto vermelho */
+      padding: 12px 25px;
+      border-radius: 50px;
+      font-size: 1.2rem;
+      font-weight: 700;
+      text-decoration: none;
+      transition: background-color 0.3s ease, color 0.3s ease;
+      user-select: text;
+    }
+
+    .contato-whatsapp a:hover,
+    .contato-whatsapp a:focus {
+      background-color: #e34b4b; /* vermelho mais claro no hover */
+      color: #fff; /* texto branco no hover */
+      outline: none;
+    }
+
+    footer {
+      background-color: #b30000;
+      color: white;
+      text-align: center;
+      padding: 20px 10px;
+      font-size: 16px;
+      font-weight: 700;
+      margin-top: auto;
+      user-select: none;
+      box-shadow: 0 -3px 8px rgba(0,0,0,0.3);
+    }
+
+    /* Responsividade */
+    @media (max-width: 600px) {
+      h1 {
+        font-size: 2.4rem;
+        flex-direction: column;
+      }
+
+      p {
+        font-size: 1rem;
+      }
+
+      .patrocinadores {
+        grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+        gap: 20px;
+        margin-bottom: 30px;
+      }
+
+      .patrocinador-card img {
+        max-height: 180px;
+      }
+
+      .contato-whatsapp {
+        max-width: 100%;
+        margin: 20px 15px 40px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <nav>
+      <a href="index.html">Início</a>
+      <a href="sobre.html">Sobre</a>
+      <a href="cadastro.html">Cadastro</a>
+      <a href="jogadores.html">Jogadores</a>
+      <a href="patrocinadores.html" class="active">Patrocinadores</a>
+    </nav>
+  </header>
+
+  <main>
+    <h1>
+      <img src="Captura de tela 2025-05-23 184055.png" alt="Escudo Heimtal FC" />
+      Patrocinadores Oficiais
+    </h1>
+    <p>Agradecemos aos nossos parceiros e patrocinadores que fazem nosso time crescer e brilhar dentro e fora do campo!</p>
+
+    <section class="patrocinadores" aria-label="Lista de patrocinadores">
+      <div class="patrocinador-card" tabindex="0">
+        <img src="IMG/nyburguer.jpeg" alt="Logo Ny Burguer" />
+        <div class="patrocinador-nome">Ny Burguer na Brasa</div>
+        <a href="https://www.instagram.com/nyburgernabrasa/" target="_blank" rel="noopener noreferrer" class="instagram-link" aria-label="Instagram Ny Burguer">
+           @nyburguer
+        </a>
+      </div>
+      <div class="patrocinador-card" tabindex="0">
+        <img src="/IMG/barronaldo.jpeg" alt="Logo Bar Ronaldo" />
+        <div class="patrocinador-nome">Bar do Ronaldo</div>
+        <a href="" target="_blank" rel="noopener noreferrer" class="instagram-link" aria-label="Instagram Bar do Ronaldo">
+           @barronaldo
+        </a>
+      </div>
+      <div class="patrocinador-card" tabindex="0">
+        <img src="/IMG/nr.jpeg" alt="Logo NR" />
+        <div class="patrocinador-nome">NR MANUTENÇÃO</div>
+        <a href="https://www.instagram.com/nrcarmanutencao/" target="_blank" rel="noopener noreferrer" class="instagram-link" aria-label="Instagram NR Manutenção">
+           @nr.manutencao
+        </a>
+      </div>
+      <div class="patrocinador-card" tabindex="0">
+        <img src="/IMG/EKIND.jpg" alt="Logo Patrocinador 4" />
+        <div class="patrocinador-nome">ELKIND AUTO ELETRICA</div>
+        <a href="https://www.instagram.com/elkindautoeletrica/" target="_blank" rel="noopener noreferrer" class="instagram-link" aria-label="Instagram Elkind Auto Eletrica">
+           @elkind.autoelectrica
+        </a>
+      </div>
+    </section>
+
+    <section class="contato-whatsapp" aria-label="Contato via WhatsApp">
+      Quer ser nossos parceiros, entre em contato com nosso WhatsApp:
+      <br />
+      <a href="https://wa.me/43999108179" target="_blank" rel="noopener noreferrer" aria-label="Entrar em contato pelo WhatsApp">
+        📲 Enviar mensagem
+      </a>
+    </section>
+  </main>
+
+  <footer>
+    &copy; 2025 Heimtal FC - Todos os direitos reservados.
+  </footer>
+</body>
+</html>
