@@ -232,12 +232,12 @@
     }
 
     .jogos-semana h3 {
-      color: #800000;
-      font-size: 1.3rem;
-      margin-bottom: 12px;
+      font-size: 2rem;
+      letter-spacing: 1px;
+      margin-bottom: 22px;
+      color: #b30000;
+      text-shadow: 1px 1px 4px #ffe5e5;
       text-align: center;
-      font-weight: 700;
-      text-shadow: 1px 1px 2px rgba(179,0,0,0.4);
     }
 
     .match-list {
@@ -249,88 +249,114 @@
     .match-list li {
       display: flex;
       align-items: center;
-      padding: 8px 0;
-      border-bottom: 1px solid #ddd;
-      gap: 8px;
+      gap: 16px;
+      background: linear-gradient(90deg, #ffe5e5 60%, #fff 100%);
+      border-radius: 8px;
+      margin-bottom: 16px;
+      padding: 12px 10px;
+      flex-wrap: wrap;
+      border: 2px solid #b30000;
+      box-shadow: 0 2px 8px rgba(179,0,0,0.08);
+      transition: transform 0.2s;
     }
 
-    .match-list li:last-child {
-      border-bottom: none;
+    .match-list li:hover {
+      transform: scale(1.03);
+      box-shadow: 0 6px 18px rgba(179,0,0,0.18);
+      border-color: #003366;
     }
 
     .match-list img {
-      width: 30px;
-      height: 30px;
-      flex-shrink: 0;
-      border-radius: 4px;
+      width: 56px;
+      height: 56px;
+      object-fit: cover;
+      border-radius: 50%;
+      border: 2px solid #003366;
     }
 
     .match-info {
-      flex-grow: 1;
-      display: flex;
-      flex-direction: column;
-      gap: 3px;
+      flex: 1 1 160px;
+      min-width: 120px;
+      font-size: 1.1rem;
+      color: #222;
     }
 
-    .match-info .teams {
+    .teams {
+      font-size: 1.2rem;
+      font-weight: bold;
+      margin-bottom: 4px;
+    }
+
+    .versus {
+      color: #b30000;
       font-weight: 700;
-      font-size: 15px;
-      color: #660000;
+      margin: 0 6px;
     }
 
-    .match-info .teams .heimtal {
-      color: #b30000;
-      font-weight: 900;
+    .opponent {
+      color: #003366;
+      font-weight: 700;
     }
 
-    .match-info .championship {
-      font-size: 13px;
-      color: #b30000;
-      font-weight: 600;
-      font-style: italic;
+    .championship {
+      display: block;
+      font-size: 1em;
+      color: #666;
+      margin-bottom: 2px;
+    }
+
+    .location {
+      display: block;
+      font-size: 0.95em;
+      color: #0055aa;
+      margin-bottom: 2px;
     }
 
     .match-time {
-      white-space: nowrap;
-      font-size: 13px;
-      color: #555;
-      flex-shrink: 0;
+      font-size: 1.1em;
+      color: #b30000;
       font-weight: 600;
+      margin-left: auto;
+      min-width: 120px;
+      text-align: right;
     }
 
-    /* Responsividade */
-    @media (max-width: 600px) {
-      h1 {
-        font-size: 2.4rem;
+    @media (max-width: 800px) {
+      .jogos-semana {
+        max-width: 98vw;
+        padding: 16px 4vw;
+      }
+
+      .match-list li {
         flex-direction: column;
+        align-items: flex-start;
         gap: 8px;
       }
 
-      p, .campo p {
-        font-size: 1rem;
+      .match-time {
+        text-align: left;
+        min-width: unset;
+        margin-left: 0;
+        margin-top: 6px;
       }
+    }
 
-      .galeria {
-        grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-        gap: 15px;
-      }
-
-      .galeria img {
-        height: 120px;
-      }
-
-      .campo {
-        padding: 20px 15px;
-      }
-
-      .campo iframe {
-        height: 250px;
-      }
-
+    @media (max-width: 500px) {
       .jogos-semana {
-        width: 90%;
-        left: 5%;
-        bottom: 15px;
+        padding: 10px 2vw;
+      }
+
+      .match-list img {
+        width: 44px;
+        height: 44px;
+      }
+
+      .match-info {
+        min-width: 80px;
+      }
+
+      .jogos-semana h3 {
+        font-size: 1.3rem;
       }
     }
   </style>
@@ -391,16 +417,25 @@
   </footer>
 
   <div class="jogos-semana" aria-label="Jogos da semana do Heimtal FC">
-    <h3>Jogos da Semana</h3>
     <ul class="match-list">
       <li>
         <img src="IMG2/Captura de tela 2025-05-23 184055.png" alt="Escudo Heimtal FC" />
         <div class="match-info">
-          <span class="teams"><span class="heimtal">Heimtal FC</span> x <span class="heimtal">V9 Soccer
-</span>
-          <span class="championship">COPA ACAL</span>
+          <span class="teams"><span class="heimtal">Heimtal FC</span> <span class="versus">vs</span> <span class="opponent">UDR</span></span>
+          <span class="championship">COPA INVERNO F7</span>
+          <span class="location">🏟️ ARENA F7 SOLLER</span>
         </div>
-        <div class="match-time">📅 Domingo - 08:45</div>
+        <div class="match-time">📅 Sexta-feira - 20:45</div>
+      </li>
+      <li>
+        <img src="IMG2/Captura de tela 2025-05-23 184055.png" alt="Escudo Heimtal FC" />
+        <div class="match-info">
+          <span class="teams"><span class="heimtal">Heimtal FC</span> <span class="versus">vs</span> <span class="opponent">VILA RICARDO</span></span>
+          <span class="championship">COPA ACAL</span>
+          <span class="location">🏟️ ARENA   HEIMTAL</span>
+        </div>
+  
+        <div class="match-time">📅 Domingo - 10:00</div>
       </li>
     </ul>
   </div>
